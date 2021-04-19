@@ -6,6 +6,12 @@ The LearnDash Python Library provides a simple wrapper for a LearnDash API.
 
 See the [LearnDash API V2 Docs](https://developers.learndash.com/rest-api/v2/).
 
+## Installation
+
+```bash
+pip install learndash
+```
+
 ## Usage
 
 ```python
