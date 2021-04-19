@@ -1,0 +1,1 @@
+from learndash.api_resources.course import Course
