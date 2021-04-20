@@ -1,6 +1,6 @@
 # LearnDash Python Library
 
-The LearnDash Python Library provides a simple wrapper for a LearnDash API.
+**Warning, early alpha. Most functionality is missing.** The LearnDash Python Library provides a simple wrapper for a LearnDash API.
 
 ## Documentation
 
