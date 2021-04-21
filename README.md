@@ -42,7 +42,7 @@ learndash.Course(1).users().update({'user_ids': [course_id]})
 
 The Learndash V2 API is still in beta, and this library is still in development. Supported resources and examples are listed below.
 
-- [ ]] Course
+- [ ] Course
     - [x] Retrieve    
     `learndash.Course(1).retrieve()`
     - [x] List    
@@ -89,7 +89,7 @@ The Learndash V2 API is still in beta, and this library is still in development.
 
 ## Configuring API Paths
 
-The LearnDash Wordpress plugin allows admins to configure the paths for each API resource. By default, this library will use the LearnDash plugin's default paths, but you can reconfigure those paths:
+The LearnDash Wordpress plugin allows admins to configure the paths for each API resource. By default, this library will use the LearnDash plugin's default paths, but you can reconfigure those paths.
 
 ### How To Configure
 
