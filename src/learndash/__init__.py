@@ -33,6 +33,7 @@ path_quizzes = 'sfwd-quiz'  # in api docs as "quizzes", in wordpress conf as "ex
 path_quiz_statistics = 'statistics'
 path_quiz_statistics_questions = 'questions'
 path_topics = 'sfwd-topic'
+path_users = 'users'  # absent from api docs, present in wordpress conf
 path_user_course_progress = 'course-progress'
 # path_user-course-progress-steps = ''  # in the api docs, not in the wordpress conf
 path_user_courses = 'courses'
