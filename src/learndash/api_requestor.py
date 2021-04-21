@@ -32,4 +32,5 @@ class APIRequestor(object):
             url,
             headers=headers,
             data=data,
+            auth=(self.wordpress_un, self.wordpress_pw),
         )
