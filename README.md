@@ -24,12 +24,12 @@ learndash.wordpress_un = os.environ.get('WORDPRESS_UN')
 learndash.wordpress_pw = os.environ.get('WORDPRESS_PW')
 
 # list Courses
-courses_resp = learndash.Course.list()
+courses_resp = learndash.Course().list()
 
 print(courses_resp.json())
 
 # retrieve specific Course
-course_resp = learndash.Course.retrieve(12)
+course_resp = learndash.Course(12).retrieve()
 
 print(course_resp.json())
 ```
