@@ -1,8 +1,5 @@
 import learndash
 
-from typing import Literal
-from typing import TypedDict
-
 from learndash.api_resources.abstract import ListableAPIResource
 from learndash.api_resources.abstract import RetrievableAPIResource
 from learndash.api_resources.abstract import UpdateableAPIResource
