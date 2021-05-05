@@ -1,10 +1,16 @@
 import learndash
+
 from learndash.api_resources.abstract import ListableAPIResource
 from learndash.api_resources.abstract import RetrievableAPIResource
 from learndash.api_resources.abstract import UpdateableAPIResource
 from learndash.api_resources.abstract import NestedAPIResource
+from learndash.api_resources.typing import UserDict
+from learndash.api_resources.typing import UserCourseProgressDict
+from learndash.api_resources.typing import UserCourseDict
+from learndash.api_resources.typing import UserGroupDict
+from learndash.api_resources.typing import UserQuizProgressDict
 
-class User(RetrievableAPIResource, ListableAPIResource):
+class User(RetrievableAPIResource[UserDict], ListableAPIResource[UserDict]):
 
     api_path = learndash.path_users
 
@@ -21,14 +27,14 @@ class User(RetrievableAPIResource, ListableAPIResource):
         return UserQuizProgress(id, parent=self)
 
 
-class UserCourseProgress(ListableAPIResource, NestedAPIResource):
+class UserCourseProgress(ListableAPIResource[UserCourseProgressDict], NestedAPIResource):
     api_path = learndash.path_user_course_progress
 
 
 # class UserCourseProgressSteps(ListableAPIResource, NestedAPIResource):
     
 
-class UserCourse(ListableAPIResource, UpdateableAPIResource, NestedAPIResource): # also deletable
+class UserCourse(ListableAPIResource[UserCourseDict], UpdateableAPIResource, NestedAPIResource): # also deletable
     api_path = learndash.path_user_courses
 
     def instance_url(self):
@@ -36,7 +42,7 @@ class UserCourse(ListableAPIResource, UpdateableAPIResource, NestedAPIResource):
         return self.class_url()
 
 
-class UserGroup(ListableAPIResource, UpdateableAPIResource, NestedAPIResource): # also deleteable
+class UserGroup(ListableAPIResource[UserGroupDict], UpdateableAPIResource, NestedAPIResource): # also deleteable
     api_path = learndash.path_user_groups
 
     def instance_url(self):
@@ -44,5 +50,5 @@ class UserGroup(ListableAPIResource, UpdateableAPIResource, NestedAPIResource): 
         return self.class_url()
 
 
-class UserQuizProgress(ListableAPIResource, NestedAPIResource):
+class UserQuizProgress(ListableAPIResource[UserQuizProgressDict], NestedAPIResource):
     api_path = learndash.path_user_quiz_progress

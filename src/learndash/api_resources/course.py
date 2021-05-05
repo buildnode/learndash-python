@@ -1,15 +1,17 @@
 import learndash
 
-from typing import CourseDict
+from typing import Literal
+from typing import TypedDict
 
-from learndash.api_resources.typing import ContentDict
-from learndash.api_resources.typing import GuidDict
-from learndash.api_resources.typing import MaterialsDict
-from learndash.api_resources.typing import TitleDict
 from learndash.api_resources.abstract import ListableAPIResource
 from learndash.api_resources.abstract import RetrievableAPIResource
 from learndash.api_resources.abstract import UpdateableAPIResource
 from learndash.api_resources.abstract import NestedAPIResource
+from learndash.api_resources.typing import CourseDict
+from learndash.api_resources.typing import CourseStepDict
+from learndash.api_resources.typing import CoursePrerequisiteDict
+from learndash.api_resources.typing import CourseUserDict
+from learndash.api_resources.typing import CourseGroupDict
 
 
 class Course(RetrievableAPIResource[CourseDict], ListableAPIResource[CourseDict]):  # Also deletable, creatable, updateable
@@ -28,7 +30,7 @@ class Course(RetrievableAPIResource[CourseDict], ListableAPIResource[CourseDict]
         return CourseGroups(id, parent=self)
 
 
-class CourseSteps(ListableAPIResource, UpdateableAPIResource, NestedAPIResource):
+class CourseSteps(ListableAPIResource[CourseStepDict], UpdateableAPIResource, NestedAPIResource):
     api_path = learndash.path_course_steps
 
     def instance_url(self):
@@ -36,11 +38,11 @@ class CourseSteps(ListableAPIResource, UpdateableAPIResource, NestedAPIResource)
             return self.class_url()
 
 
-class CoursePrerequisites(ListableAPIResource, NestedAPIResource):
+class CoursePrerequisites(ListableAPIResource[CoursePrerequisiteDict], NestedAPIResource):
     api_path = learndash.path_course_prerequisites
 
 
-class CourseUser(ListableAPIResource, UpdateableAPIResource, NestedAPIResource):
+class CourseUser(ListableAPIResource[CourseUserDict], UpdateableAPIResource, NestedAPIResource):
     api_path = learndash.path_course_users
 
     def instance_url(self):
@@ -48,7 +50,7 @@ class CourseUser(ListableAPIResource, UpdateableAPIResource, NestedAPIResource):
         return self.class_url()
 
 
-class CourseGroups(ListableAPIResource, UpdateableAPIResource, NestedAPIResource): # Also deletable
+class CourseGroups(ListableAPIResource[CourseGroupDict], UpdateableAPIResource, NestedAPIResource): # Also deletable
     api_path = learndash.path_course_groups
 
     def instance_url(self):
