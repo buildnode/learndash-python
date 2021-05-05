@@ -1,9 +1,14 @@
+from typing import Generic
+from typing import TypeVar
+
 from learndash.api_resources.abstract.api_resource import APIResource
 from learndash.exceptions import LearndashException
 
 
-class ListableAPIResource(APIResource):
-    def list(self, **params):
+T = TypeVar('T')
+
+class ListableAPIResource(APIResource, Generic[T]):
+    def list(self, **params) -> 'list[T]':
         url = self.class_url()
         resp = self.request("get", url, params)
 
