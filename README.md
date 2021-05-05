@@ -24,14 +24,12 @@ learndash.wordpress_un = os.environ.get('WORDPRESS_UN')
 learndash.wordpress_pw = os.environ.get('WORDPRESS_PW')
 
 # list Courses
-courses_resp = learndash.Course().list()
-
-print(courses_resp.json())
+courses = learndash.Course().list()
+print(courses)
 
 # retrieve specific Course
-course_resp = learndash.Course(12).retrieve()
-
-print(course_resp.json())
+course = learndash.Course(12).retrieve()
+print(course)
 
 # add user to a course
 course_id = 1
