@@ -41,3 +41,4 @@ path_user_groups = 'groups'
 path_user_quiz_progress = 'course-progress'
 
 from learndash.api_resources import *
+from learndash.exceptions import *
